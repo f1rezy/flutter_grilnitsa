@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_grilnitsa/presentation/basket.dart';
 import 'package:flutter_grilnitsa/presentation/menu.dart';
 import 'package:flutter_grilnitsa/presentation/profile.dart';
@@ -32,6 +33,7 @@ class _ApplicationState extends State<Application> {
     return MaterialApp(
       title: 'Грильница',
       theme: ThemeData.light(),
+      debugShowCheckedModeBanner: false,
       routes: {
         '/promotions': (context) => const Promotions(),
         '/menu': (context) => const Menu(),
@@ -41,21 +43,33 @@ class _ApplicationState extends State<Application> {
       home: Scaffold(
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.percent),
+              icon: SvgPicture.asset(
+                'assets/icons/percent.svg',
+                colorFilter: _selectedIndex == 0 ? const ColorFilter.mode(Colors.orange, BlendMode.srcIn) : null,
+              ),
               label: 'Акции',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
+              icon: SvgPicture.asset(
+                'assets/icons/burger.svg',
+                colorFilter: _selectedIndex == 1 ? const ColorFilter.mode(Colors.orange, BlendMode.srcIn) : null,
+              ),
               label: 'Меню',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_basket),
+              icon: SvgPicture.asset(
+                'assets/icons/basket.svg',
+                colorFilter: _selectedIndex == 2 ? const ColorFilter.mode(Colors.orange, BlendMode.srcIn) : null,
+              ),
               label: 'Корзина',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: SvgPicture.asset(
+                'assets/icons/profile.svg',
+                colorFilter: _selectedIndex == 3 ? const ColorFilter.mode(Colors.orange, BlendMode.srcIn) : null,
+              ),
               label: 'Профиль',
             ),
           ],

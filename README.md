@@ -1,4 +1,4 @@
-# flutter_frilnitsa
+# flutter_grilnitsa
 
 A new Flutter project.
 
